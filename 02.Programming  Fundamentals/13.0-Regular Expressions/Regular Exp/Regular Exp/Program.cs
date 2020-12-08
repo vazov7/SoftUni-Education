@@ -7,7 +7,7 @@ namespace Regular_Exp
     {
         static void Main(string[] args)
         {
-            string pattern = @"\b[A-Z][a-z]+ [A-Z][a-z]+";
+            string pattern = @"\b([A-Z][a-z]+) ([A-Z][a-z]+)";
             Regex regex = new Regex(pattern);
 
             string text = Console.ReadLine();

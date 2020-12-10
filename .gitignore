@@ -2,5 +2,4 @@ bin
 obj
 *.docx
 *.pptx
-
-
+*.sln

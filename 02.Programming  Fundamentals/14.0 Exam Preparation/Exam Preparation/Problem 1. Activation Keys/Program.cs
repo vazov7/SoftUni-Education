@@ -80,7 +80,8 @@ namespace Problem_1._Activation_Keys
                 {
                     int startIndex = int.Parse(commands[1]);
                     int endIndex = int.Parse(commands[2]);
-                    string newKey = rawKey.Remove(startIndex +1  , endIndex - 2 );
+                    int count = endIndex - startIndex;
+                    string newKey = rawKey.Remove(startIndex , count);
                     rawKey = newKey;
                     Console.WriteLine(rawKey);
 

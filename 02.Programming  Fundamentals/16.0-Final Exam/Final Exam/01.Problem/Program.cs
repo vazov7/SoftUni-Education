@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace _01.Problem
 {
@@ -24,9 +25,22 @@ namespace _01.Problem
                 {
                     int startIndex = int.Parse(cmdList[1]);
                     int endIndex = int.Parse(cmdList[2]);
+                    StringBuilder newInput = new StringBuilder();
                     if (startIndex > 0 && endIndex < input.Length)
                     {//this is Valid
-                        input = input.Remove(startIndex, (endIndex));
+                        for (int i = 0; i < input.Length; i++)
+                        {
+                            if (i >= startIndex && i <= endIndex)
+                            {
+                            }
+                            else
+                            {
+                                newInput.Append(input[i]);
+
+                            }
+
+                        }
+                        input = newInput.ToString();
                         Console.WriteLine(input);
                     }
                     else
@@ -67,11 +81,11 @@ namespace _01.Problem
                 {
                     int startIndex = int.Parse(cmdList[1]);
                     int endIndex = int.Parse(cmdList[2]);
-                    if (startIndex > 0 && endIndex < input.Length)
+                    if (startIndex >= 0 && endIndex <= input.Length)
                     {
 
                         string substring = input.Substring(startIndex, endIndex);
-                        int sum = input.Substring(startIndex, endIndex)
+                        var sum = input.Substring(startIndex, endIndex)
                             .ToString()
                             .ToCharArray()
                             .Sum(x => (int)x);

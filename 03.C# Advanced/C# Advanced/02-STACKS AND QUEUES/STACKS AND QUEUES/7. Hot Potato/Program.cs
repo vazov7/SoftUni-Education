@@ -28,7 +28,7 @@ namespace _7._Hot_Potato
                 }
             }
 
-            Console.WriteLine("last is " + potaotesQueue.Dequeue());
+            Console.WriteLine("Last is " + potaotesQueue.Dequeue());
         }
     }
 }

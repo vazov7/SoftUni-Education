@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _2._Stack_Sum
+namespace SimpleCalculator
 {
     class Program
     {

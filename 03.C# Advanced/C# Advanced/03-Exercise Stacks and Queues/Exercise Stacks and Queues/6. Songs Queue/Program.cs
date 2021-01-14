@@ -20,7 +20,7 @@ namespace _6._Songs_Queue
                     songs.Dequeue();
                     if (songs.Count == 0 )
                     {
-                        Console.WriteLine("No more songs !");
+                        Console.WriteLine("No more songs!");
                         break;
                     }
                 }

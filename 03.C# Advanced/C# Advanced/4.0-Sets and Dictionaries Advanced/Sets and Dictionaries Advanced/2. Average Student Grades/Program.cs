@@ -34,7 +34,7 @@ namespace _2._Average_Student_Grades
                 {
                     Console.Write($"{student:f2} ");
                 }
-                Console.Write($"avg: ({key.Value.Average()})");
+                Console.Write($"(avg: {key.Value.Average():f2})");
                 Console.WriteLine();
             }
         }

@@ -11,7 +11,7 @@ namespace CarManufacturer
         private int year;
         private double fuelQuantity;
         private double fuelConsumpition;
-
+        pub
         public string Make
         {
             get { return make; }

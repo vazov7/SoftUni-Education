@@ -17,6 +17,7 @@ namespace BoxOfIntegers
         {
             foreach (var item in strings)
             {
+                
                 item.ToString();
                 Console.WriteLine($"{item.GetType()}: {item}");
             }

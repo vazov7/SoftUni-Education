@@ -22,7 +22,6 @@ namespace _2.__2X2_Squares_in_Matrix
                     matrix[row, col] = input[col];
                 }
             }
-            //create count 
             int count = 0;
             for (int row = 0; row < inputRow-1; row++)
             {

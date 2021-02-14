@@ -4,8 +4,8 @@ namespace Bee
 {
     class Program
     {
-        
-       static void Main(string[] args)
+
+        static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
             char[,] matrix = new char[n, n];
@@ -40,12 +40,16 @@ namespace Bee
                     {
                         if (matrix[indexOfBee[0], indexOfBee[1]] == 'O')
                         {
-                            indexOfBee[0] = indexOfBee[0] - 1;
-                            if (!IsInRange(n, indexOfBee[0], indexOfBee[1]))
-                                break;
-
                             matrix[indexOfBee[0], indexOfBee[1]] = 'B';
                             matrix[indexOfBee[0] + 1, indexOfBee[1]] = '.';
+                            indexOfBee[0] = indexOfBee[0] - 1;
+                            if (!IsInRange(n, indexOfBee[0], indexOfBee[1]))
+                            {
+
+                                matrix[indexOfBee[0] + 1, indexOfBee[1]] = '.';
+                                break;
+                            }
+
                             if (matrix[indexOfBee[0], indexOfBee[1]] == 'f')
                             {
 
@@ -75,6 +79,7 @@ namespace Bee
                     }
                     else
                     {
+                        matrix[indexOfBee[0] + 1, indexOfBee[1]] = '.';
                         break;
                     }
 
@@ -86,12 +91,16 @@ namespace Bee
                     {
                         if (matrix[indexOfBee[0], indexOfBee[1]] == 'O')
                         {
-                            
-                            indexOfBee[0] = indexOfBee[0] + 1;
-                            if (!IsInRange(n, indexOfBee[0], indexOfBee[1]))
-                                break;
+
                             matrix[indexOfBee[0], indexOfBee[1]] = 'B';
                             matrix[indexOfBee[0] - 1, indexOfBee[1]] = '.';
+                            indexOfBee[0] = indexOfBee[0] + 1;
+                            if (!IsInRange(n, indexOfBee[0], indexOfBee[1]))
+                            {
+
+                                matrix[indexOfBee[0] - 1, indexOfBee[1]] = '.';
+                                break;
+                            }
                             if (matrix[indexOfBee[0], indexOfBee[1]] == 'f')
                             {
 
@@ -121,6 +130,7 @@ namespace Bee
                     }
                     else
                     {
+                        matrix[indexOfBee[0] - 1, indexOfBee[1]] = '.';
                         break;
                     }
 
@@ -132,13 +142,16 @@ namespace Bee
                     {
                         if (matrix[indexOfBee[0], indexOfBee[1]] == 'O')
                         {
-                          
-                            indexOfBee[1] = indexOfBee[1] - 1;
-                            if (!IsInRange(n, indexOfBee[0], indexOfBee[1]))
-                                break;
 
                             matrix[indexOfBee[0], indexOfBee[1]] = 'B';
                             matrix[indexOfBee[0], indexOfBee[1] + 1] = '.';
+                            indexOfBee[1] = indexOfBee[1] - 1;
+                            if (!IsInRange(n, indexOfBee[0], indexOfBee[1]))
+                            {
+
+                                matrix[indexOfBee[0], indexOfBee[1] + 1] = '.';
+                                break;
+                            }
                             if (matrix[indexOfBee[0], indexOfBee[1]] == 'f')
                             {
 
@@ -168,6 +181,7 @@ namespace Bee
                     }
                     else
                     {
+                        matrix[indexOfBee[0], indexOfBee[1] + 1] = '.';
                         break;
                     }
                 }
@@ -183,10 +197,12 @@ namespace Bee
                             matrix[indexOfBee[0], indexOfBee[1] - 1] = '.';
                             indexOfBee[1] = indexOfBee[1] + 1;
                             if (!IsInRange(n, indexOfBee[0], indexOfBee[1]))
-                                break;
+                            {
 
-                            matrix[indexOfBee[0], indexOfBee[1]] = 'B';
-                            matrix[indexOfBee[0], indexOfBee[1] - 1] = '.';
+                                matrix[indexOfBee[0], indexOfBee[1] - 1] = '.';
+                                break;
+                            }
+
                             if (matrix[indexOfBee[0], indexOfBee[1]] == 'f')
                             {
 
@@ -216,11 +232,32 @@ namespace Bee
                     }
                     else
                     {
+                        matrix[indexOfBee[0], indexOfBee[1] - 1] = '.';
                         break;
                     }
 
                 }
-                    
+
+            }
+            if (!IsInRange(n, indexOfBee[0], indexOfBee[1]))
+            {
+                Console.WriteLine($"The bee got lost!");
+            }
+            if (pollinateFlowers < 5)
+            {
+                Console.WriteLine($"The bee couldn't pollinate the flowers, she needed {5 - pollinateFlowers} flowers more");
+            }
+            else
+            {
+                Console.WriteLine($"Great job, the bee managed to pollinate {pollinateFlowers} flowers!");
+            }
+            for (int col = 0; col < n; col++)
+            {
+                for (int row = 0; row < n; row++)
+                {
+                    Console.Write(matrix[col, row]);
+                }
+                Console.WriteLine();
             }
 
         }

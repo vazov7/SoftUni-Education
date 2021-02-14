@@ -4,5 +4,6 @@
 f.BOf
 ..f..
 fffff
-right
-right
+down
+down
+down

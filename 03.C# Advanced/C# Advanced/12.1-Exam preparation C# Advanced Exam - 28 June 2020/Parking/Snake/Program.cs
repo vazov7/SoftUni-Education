@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Snake
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -13,11 +15,12 @@ namespace Snake
             int[] outputBurrow = new int[2];
             int foodQuattity = 0;
             int c = 0;
+            List<string> foodPositions = new List<string>();
 
             for (int col = 0; col < n; col++)
             {
                 string inputRow = Console.ReadLine();
-                for (int row = 0; row < n; row++)
+                for (int row = 0; row < inputRow.Length; row++)
                 {
 
                     matrix[col, row] = inputRow[row];
@@ -37,26 +40,158 @@ namespace Snake
                         outputBurrow[0] = col;
                         outputBurrow[1] = row;
                     }
+                    if (inputRow[row] == '*')
+                    {
+                        foodPositions.Add($"{col} {row}");
+                    }
                 }
             }
+
+
+
             while (foodQuattity < 10)
             {
                 string command = Console.ReadLine();
                 if (command == "up")
                 {
                     snakePosition[0] -= 1;
+                    if (!IsInRange(n, snakePosition[0], snakePosition[1]))
+                    {
+                        matrix[snakePosition[0] + 1, snakePosition[1]] = '.';
+                        break;
+                    }
+
                     matrix[snakePosition[0] + 1, snakePosition[1]] = '.';
                     matrix[snakePosition[0], snakePosition[1]] = 'S';
+                    if (foodPositions.Contains($"{snakePosition[0]} {snakePosition[1]}"))
+                    {
+                        foodPositions.Remove($"{snakePosition[0]} {snakePosition[1]}");
+                        foodQuattity++;
+                    }
+
+                    int[] temp = new int[]
+                    {
+                        snakePosition[0],
+                        snakePosition[1]
+                    };
                     snakePosition = IsInBarrow(snakePosition, inputBurrow, outputBurrow);
-                    //find a way to replace S in matrix with other posisons of barrew and second barrew replace with "."
-                   
+                    if (!(snakePosition[0] == temp[0] && snakePosition[1] == temp[1]))
+                    {
+                        matrix[temp[0], temp[1]] = '.';
+                        matrix[snakePosition[0], snakePosition[1]] = 'S';
+
+                    }
+
                 }
+                else if (command == "down")
+                {
+                    snakePosition[0] += 1;
+                    if (!IsInRange(n, snakePosition[0], snakePosition[1]))
+                    {
+                        matrix[snakePosition[0] - 1, snakePosition[1]] = '.';
+                        break;
+                    }
+                    matrix[snakePosition[0] - 1, snakePosition[1]] = '.';
+                    matrix[snakePosition[0], snakePosition[1]] = 'S';
+                    if (foodPositions.Contains($"{snakePosition[0]} {snakePosition[1]}"))
+                    {
+                        foodPositions.Remove($"{snakePosition[0]} {snakePosition[1]}");
+                        foodQuattity++;
+                    }
+                    int[] temp = new int[]
+                    {
+                        snakePosition[0],
+                        snakePosition[1]
+                    };
+                    snakePosition = IsInBarrow(snakePosition, inputBurrow, outputBurrow);
+                    if (!(snakePosition[0] == temp[0] && snakePosition[1] == temp[1]))
+                    {
+                        matrix[temp[0], temp[1]] = '.';
+                        matrix[snakePosition[0], snakePosition[1]] = 'S';
+                    }
+                }
+                else if (command == "left")
+                {
+                    snakePosition[1] -= 1;
+                    if (!IsInRange(n, snakePosition[0], snakePosition[1]))
+                    {
+                        matrix[snakePosition[0], snakePosition[1] + 1] = '.';
+                        break;
+                    }
+                    matrix[snakePosition[0], snakePosition[1] +1] = '.';
+                    matrix[snakePosition[0], snakePosition[1]] = 'S';
+                    if (foodPositions.Contains($"{snakePosition[0]} {snakePosition[1]}"))
+                    {
+                        foodPositions.Remove($"{snakePosition[0]} {snakePosition[1]}");
+                        foodQuattity++;
+                    }
+                    int[] temp = new int[]
+                    {
+                        snakePosition[0],
+                        snakePosition[1]
+                    };
+                    snakePosition = IsInBarrow(snakePosition, inputBurrow, outputBurrow);
+                    if (!(snakePosition[0] == temp[0] && snakePosition[1] == temp[1]))
+                    {
+                        matrix[temp[0], temp[1]] = '.';
+                        matrix[snakePosition[0], snakePosition[1]] = 'S';
+                    }
+
+                }
+                else if (command == "right")
+                {
+                    snakePosition[1] += 1;
+                    if (!IsInRange(n, snakePosition[0], snakePosition[1]))
+                    {
+                        matrix[snakePosition[0], snakePosition[1] + 1] = '.';
+                        break;
+                    }
+                    matrix[snakePosition[0], snakePosition[1] - 1] = '.';
+                    matrix[snakePosition[0], snakePosition[1]] = 'S';
+
+                    if (foodPositions.Contains($"{snakePosition[0]} {snakePosition[1]}"))
+                    {
+                        foodPositions.Remove($"{snakePosition[0]} {snakePosition[1]}");
+                        foodQuattity++;
+                    }
+                    int[] temp = new int[]
+                    {
+                        snakePosition[0],
+                        snakePosition[1]
+                    };
+                    snakePosition = IsInBarrow(snakePosition, inputBurrow, outputBurrow);
+                    if (!(snakePosition[0] == temp[0] && snakePosition[1] == temp[1]))
+                    {
+                        matrix[temp[0], temp[1]] = '.';
+                        matrix[snakePosition[0], snakePosition[1]] = 'S';
+                    }
+
+                }
+            }
+            if (!IsInRange(n, snakePosition[0], snakePosition[1]))
+            {
+
+                Console.WriteLine("Game over!");
+            }
+            else if (foodQuattity >= 10)
+            {
+                Console.WriteLine("You won! You fed the snake.");
+
+            }
+            Console.WriteLine($"Food eaten: {foodQuattity}");
+
+            for (int col = 0; col < n; col++)
+            {
+                for (int row = 0; row < n; row++)
+                {
+                    Console.Write(matrix[col,row]);
+                }
+                Console.WriteLine();
             }
 
 
-
         }
-        static int[] IsInBarrow(int[]snakePosition,int[] firstBarre, int[] secondBarrew)
+        static int[] IsInBarrow(int[] snakePosition, int[] firstBarre, int[] secondBarrew)
         {
             if (snakePosition[0] == firstBarre[0] && snakePosition[1] == firstBarre[1])
             {
@@ -70,12 +205,11 @@ namespace Snake
             }
             return snakePosition;
         }
-        static void MoveUp()
-        {
 
-        }
         static bool IsInRange(int n, int col, int row)
         {
+           
+            // 5
             if ((col >= 0 && col < n) && (row >= 0 && row < n))
             {
                 return true;

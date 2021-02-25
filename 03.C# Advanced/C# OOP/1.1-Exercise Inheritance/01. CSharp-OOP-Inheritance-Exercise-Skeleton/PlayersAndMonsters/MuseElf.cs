@@ -4,7 +4,10 @@ using System.Text;
 
 namespace PlayersAndMonsters
 {
-    class MuseElf
+    public class MuseElf : Elf
     {
+        public MuseElf(string username, int level) : base(username, level)
+        {
+        }
     }
 }

@@ -4,7 +4,10 @@ using System.Text;
 
 namespace PlayersAndMonsters
 {
-    class DarkWizard
+    public class DarkWizard : Wizard
     {
+        public DarkWizard(string username, int level) : base(username, level)
+        {
+        }
     }
 }

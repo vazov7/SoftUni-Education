@@ -1,75 +1,66 @@
-﻿namespace AnimalFarm.Models
+﻿using System;
+namespace AnimalFarm.Models
 {
     public class Chicken
     {
-        public const int MinAge = 0;
-        public const int MaxAge = 15;
+        private const int MinAge = 0;
+        private const int MaxAge = 15;
 
-        protected string name;
-        internal int age;
+        private string name;
+        private int age;
 
         internal Chicken(string name, int age)
         {
-            this.name = name;
-            this.age = age;
+            this.Name = name;
+            this.Age = age;
         }
 
         public string Name
         {
-            get
+            get => this.name;
+            private set
             {
-                return this.name;
-            }
-
-            internal set
-            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Name cannot be empty.");
+                }
                 this.name = value;
             }
         }
 
         public int Age
         {
-            get
-            {
-                return this.age;
-            }
-
+            get => this.age;
             protected set
             {
+                if (value < MinAge || value > MaxAge)
+                {
+                    throw new ArgumentException($"Age should be between {MinAge} and {MaxAge}."); 
+                }
                 this.age = value;
             }
         }
 
         public double ProductPerDay
         {
-			get
-			{				
-				return this.CalculateProductPerDay();
-			}
-        }
-
-        public double CalculateProductPerDay()
-        {
-            switch (this.Age)
+            get
             {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
+                if (this.Age >= 0 && this.Age <= 3)
+                {
                     return 1.5;
-                case 4:
-                case 5:
-                case 6:
-                case 7:
+                }
+                if (this.Age >= 4 && this.Age <= 7)
+                {
                     return 2;
-                case 8:
-                case 9:
-                case 10:
-                case 11:
+                }
+                if (this.Age >= 9 && this.Age <=11)
+                {
                     return 1;
-                default:
-                    return 0.75;
+                }
+                return 0.75;
             }
         }
+
+        
     }
 }

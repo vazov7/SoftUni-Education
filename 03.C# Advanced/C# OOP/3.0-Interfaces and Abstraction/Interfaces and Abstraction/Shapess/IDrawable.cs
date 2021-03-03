@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace тест
+namespace Shapess
 {
-    public class Waiter
+    public interface IDrawable
     {
-      
+        void Draw();
     }
 }

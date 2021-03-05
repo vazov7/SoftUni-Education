@@ -6,6 +6,6 @@ namespace Telephony
 {
     public interface ISmartphone : IStationaryPhone
     {
-        public string BrowseInWorldWideWeb(string URL);
+        public abstract string BrowseInWorldWideWeb(string URL);
     }
 }

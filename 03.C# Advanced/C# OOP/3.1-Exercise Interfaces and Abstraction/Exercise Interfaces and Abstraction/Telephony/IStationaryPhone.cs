@@ -6,7 +6,7 @@ namespace Telephony
 {
     public interface IStationaryPhone
     {
-        public string CallOtherPhones(string number);
+        public abstract string CallOtherPhones(string number);
         
     }
 }

@@ -27,8 +27,15 @@ namespace _6.Courses
                 }
             }
             //sort map to n.value.count by descending order
-            Dictionary<string, List<string>> map2 = 
-                map.OrderByDescending(x => x.Value.Count).ToDictionary<string, List<string>>;
+            Dictionary<string, List<string>> map2 =
+                new Dictionary<string, List<string>>(map.OrderByDescending(x => x.Value.Count).ThenBy(x => x.Value));
+
+            foreach (var item in map2)
+            {
+                List<string> orderMap = item.Value;
+                orderMap.Sort();
+                map2[item.Key] = orderMap;  
+            }
             //then sort list of names in map by ascending order and print them
 
         }

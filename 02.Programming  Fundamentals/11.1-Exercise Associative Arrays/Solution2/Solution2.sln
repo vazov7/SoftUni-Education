@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4. Orders", "4. Orders\4. O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5. SoftUni Parking", "5. SoftUni Parking\5. SoftUni Parking.csproj", "{9246EDCC-4D29-41CC-9719-EC332DB327AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.Courses", "6.Courses\6.Courses.csproj", "{AA6341F2-65B5-4294-8AA9-82F138930AE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6.Courses", "6.Courses\6.Courses.csproj", "{AA6341F2-65B5-4294-8AA9-82F138930AE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.StudentAcademy", "7.StudentAcademy\7.StudentAcademy.csproj", "{4A57D5F2-9251-4A50-9FE0-6B1040C21357}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{AA6341F2-65B5-4294-8AA9-82F138930AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA6341F2-65B5-4294-8AA9-82F138930AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA6341F2-65B5-4294-8AA9-82F138930AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A57D5F2-9251-4A50-9FE0-6B1040C21357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A57D5F2-9251-4A50-9FE0-6B1040C21357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A57D5F2-9251-4A50-9FE0-6B1040C21357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A57D5F2-9251-4A50-9FE0-6B1040C21357}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

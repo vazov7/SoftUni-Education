@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30517.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regular Exp", "Regular Exp\Regular Exp.csproj", "{B767635E-432D-4F1F-B55E-7387DD4BF5CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regular Exp", "Regular Exp\Regular Exp.csproj", "{B767635E-432D-4F1F-B55E-7387DD4BF5CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchPhoneNumber", "MatchPhoneNumber\MatchPhoneNumber.csproj", "{A345267F-2898-492D-8452-41A07309B94F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchDates", "MatchDates\MatchDates.csproj", "{6637B1AD-9165-4366-92C8-862049697391}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B767635E-432D-4F1F-B55E-7387DD4BF5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B767635E-432D-4F1F-B55E-7387DD4BF5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B767635E-432D-4F1F-B55E-7387DD4BF5CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A345267F-2898-492D-8452-41A07309B94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A345267F-2898-492D-8452-41A07309B94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A345267F-2898-492D-8452-41A07309B94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A345267F-2898-492D-8452-41A07309B94F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6637B1AD-9165-4366-92C8-862049697391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6637B1AD-9165-4366-92C8-862049697391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6637B1AD-9165-4366-92C8-862049697391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6637B1AD-9165-4366-92C8-862049697391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
